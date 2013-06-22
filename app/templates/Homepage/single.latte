@@ -1,0 +1,23 @@
+{block content}
+<a n:href="Homepage:">&lt;&lt; home </a>
+<div class="post">
+    <h1>{$post['title']}</h1>
+    <small>Přidáno {$post['date']|date}</small>
+    <p>{$post['body']}</p>
+</div>
+
+<h3>Komentáře:</h3>
+<div id="comments">
+    {if $comments}
+        {foreach $comments as $comment}
+            {dump $comment}
+                <p>{$comment['body']}</p>
+                <small>{$comment['author']}, {$comment['date']|date}</small>
+                <hr>
+         {/foreach}
+    {else}
+        Ke článku zatím nebyly napsány žádné komentáře. Buďte první!
+    {/if}
+</div>
+
+{control commentForm}
