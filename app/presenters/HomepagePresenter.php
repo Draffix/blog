@@ -24,10 +24,10 @@ class HomepagePresenter extends BasePresenter {
 
     public function renderSingle($id) {
         if (!($post = $this->postsRepository->fetchSingle($id))) {
-            $this->redirect('default'); //pokud clanek neexistuje, presmerujeme uzivatele
+            $this->error('Článek nebyl nalezen'); //pokud clanek neexistuje, presmerujeme uzivatele
         }
         $this->template->post = $post;
-        $this->template->comments = $this->commentsRepository->fetchAll($id);
+        $this->template->comments = $this->commentsRepository->fetchArticleComments($id);
     }
 
     protected function createComponentCommentForm() {
@@ -37,11 +37,11 @@ class HomepagePresenter extends BasePresenter {
         $form->addTextArea('body', 'Komentář: ')
                 ->addRule($form::FILLED, 'Komentář je povinný!');
         $form->addSubmit('send', 'Odeslat');
-        $form->onSuccess[] = callback($this, 'CommentFormSubmitted');
+        $form->onSuccess[] = callback($this, 'commentFormSubmitted');
         return $form;
     }
 
-    public function CommentFormSubmitted(UI\Form $form) {
+    public function commentFormSubmitted(UI\Form $form) {
         $data = $form->getValues();
         $data['date'] = new DateTime();
         $data['post_id'] = (int) $this->getParam('id');
@@ -49,5 +49,4 @@ class HomepagePresenter extends BasePresenter {
         $this->flashMessage('Komentář uložen!');
         $this->redirect("this");
     }
-
 }
