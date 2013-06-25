@@ -7,14 +7,14 @@
  */
 class CommentsRepository extends Repository {
 
-    public function fetchAll($post_id) {
+    public function fetchArticleComments($post_id) {
         return $this->connection->table('comments')
-                        ->where('post_id = ?', $post_id);
+            ->where('post_id = ?', $post_id);
     }
 
     public function insert($data) {
         $this->connection->table('comments')
-                ->insert($data);
+            ->insert($data);
     }
-    
+
 }
