@@ -1,6 +1,6 @@
 <?php
 
-namespace Front;
+namespace FrontModule;
 
 use Nette\Application\UI;
 
@@ -9,13 +9,13 @@ use Nette\Application\UI;
  */
 class HomepagePresenter extends BasePresenter {
 
-    /** @var PostsRepository */
+    /** @var \PostsRepository */
     private $postsRepository;
 
-    /** @var CommentsRepository */
+    /** @var \CommentsRepository */
     private $commentsRepository;
 
-    public function inject(PostsRepository $postsRepository, CommentsRepository $commentsRepository) {
+    public function inject(\PostsRepository $postsRepository, \CommentsRepository $commentsRepository) {
         $this->postsRepository = $postsRepository;
         $this->commentsRepository = $commentsRepository;
     }
@@ -45,7 +45,7 @@ class HomepagePresenter extends BasePresenter {
 
     public function commentFormSubmitted(UI\Form $form) {
         $data = $form->getValues();
-        $data['date'] = new DateTime();
+        $data['date'] = new \DateTime();
         $data['post_id'] = (int) $this->getParam('id');
         $id = $this->commentsRepository->insert($data);
         $this->flashMessage('Komentář uložen!');

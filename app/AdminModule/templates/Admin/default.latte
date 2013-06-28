@@ -1,0 +1,27 @@
+{block content}
+<div id="posts">
+    {if count($posts)}
+        <h3>Seznam článků</h3>
+        <table border="0">
+            {foreach $posts as $post}
+                <div class="post">
+                    <tr>
+                        <td>
+                            <a n:href=":Front:Homepage:single $post['id']">{$post['title']}</a> (
+                            <small>Přidáno {$post['date']|date}</small>
+                            )
+                        </td>
+                        <td>
+                            <a n:href="Admin:single $post->id">Upravit</a> | <a n:href="deleteArticle! $post->id">Smazat</a>
+                        </td>
+                    </tr>
+                </div>
+            {/foreach}
+        </table>
+    {else}
+        Zatím nebyl napsán žádný článek.
+    {/if}
+
+    <h5><a n:href="Admin:addArticle">Přidat nový článek</a></h5>
+</div>
+{/block}

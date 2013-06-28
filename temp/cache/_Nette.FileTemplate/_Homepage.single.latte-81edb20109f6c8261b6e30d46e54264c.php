@@ -1,16 +1,16 @@
-<?php //netteCache[01]000379a:2:{s:4:"time";s:21:"0.88669500 1372173772";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\wamp\www\blog\blog\app\templates\Homepage\single.latte";i:2;i:1372173239;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"c0332ac released on 2013-03-08";}}}?><?php
+<?php //netteCache[01]000391a:2:{s:4:"time";s:21:"0.47849900 1372263726";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\wamp\www\blog\blog\app\FrontModule\templates\Homepage\single.latte";i:2;i:1372173239;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"c0332ac released on 2013-03-08";}}}?><?php
 
-// source file: C:\wamp\www\blog\blog\app\templates\Homepage\single.latte
+// source file: C:\wamp\www\blog\blog\app\FrontModule\templates\Homepage\single.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'hqxouu0nma')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'swfkoq0l1v')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbf46636eb13_content')) { function _lbf46636eb13_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb534dbec61e_content')) { function _lb534dbec61e_content($_l, $_args) { extract($_args)
 ?><a href="<?php echo htmlSpecialChars($_control->link("Homepage:")) ?>">&lt;&lt; home </a>
 <div class="post">
     <h1><?php echo Nette\Templating\Helpers::escapeHtml($post['title'], ENT_NOQUOTES) ?></h1>

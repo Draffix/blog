@@ -26,6 +26,7 @@
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
+    <a n:href="Sign:in">Přihlásit se do administrace</a><br>
 	{include #content}
 
 	{block scripts}

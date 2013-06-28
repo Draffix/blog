@@ -1,16 +1,16 @@
-<?php //netteCache[01]000380a:2:{s:4:"time";s:21:"0.30581200 1372172615";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:58:"C:\wamp\www\blog\blog\app\templates\Homepage\default.latte";i:2;i:1371894211;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"c0332ac released on 2013-03-08";}}}?><?php
+<?php //netteCache[01]000392a:2:{s:4:"time";s:21:"0.13683600 1372263070";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\wamp\www\blog\blog\app\FrontModule\templates\Homepage\default.latte";i:2;i:1371894211;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"c0332ac released on 2013-03-08";}}}?><?php
 
-// source file: C:\wamp\www\blog\blog\app\templates\Homepage\default.latte
+// source file: C:\wamp\www\blog\blog\app\FrontModule\templates\Homepage\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'nusplu192g')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 's1nd2qw8vr')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lba6aadf6ad8_content')) { function _lba6aadf6ad8_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbd68513bc64_content')) { function _lbd68513bc64_content($_l, $_args) { extract($_args)
 ?><h1>Můj blogísek</h1>
 <div id="posts">
 <?php if (count($posts)): $iterations = 0; foreach ($posts as $post): ?>

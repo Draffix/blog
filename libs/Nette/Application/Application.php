@@ -16,7 +16,7 @@ use Nette;
 
 
 /**
- * Front Controller.
+ * FrontModule Controller.
  *
  * @author     David Grudl
  *
