@@ -1,5 +1,7 @@
 <?php
 
+namespace Front;
+
 /**
  * Base presenter for all application presenters.
  */
