@@ -1,19 +1,14 @@
 {**
- * My Application layout template.
- *
  * @param string   $basePath web base path
- * @param string   $robots   tell robots how to index the content of a page (optional)
  * @param array    $flashes  flash messages
  *}
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta name="robots" content="{$robots}" n:ifset="$robots">
+	<meta charset="utf-8">
 
-	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+	<title>{ifset #title}{include title|striptags} | {/ifset}Nette Sandbox</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
@@ -25,9 +20,8 @@
 	<script> document.documentElement.className+=' js' </script>
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-
     <a n:href="Sign:in">Přihlásit se do administrace</a><br>
-	{include #content}
+	{include content}
 
 	{block scripts}
 	<script src="{$basePath}/js/jquery.js"></script>

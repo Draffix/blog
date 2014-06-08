@@ -1,10 +1,10 @@
 <?php
-
 /**
- * Repozitář starající se o články
- *
- * @author Draffix
+ * Author: Jaroslav Klimčík
+ * Date: 8.6.14
+ * Website: http://jerryklimcik.cz
  */
+
 class PostsRepository extends Repository {
 
     public function fetchAll() {
@@ -34,5 +34,4 @@ class PostsRepository extends Repository {
         $this->connection->table('posts')
             ->insert($data);
     }
-
 }

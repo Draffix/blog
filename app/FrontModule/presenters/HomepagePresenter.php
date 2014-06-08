@@ -2,7 +2,8 @@
 
 namespace FrontModule;
 
-use Nette\Application\UI;
+use \Nette\Application\UI;
+
 
 /**
  * Homepage presenter.
@@ -15,9 +16,9 @@ class HomepagePresenter extends BasePresenter {
     /** @var \CommentsRepository */
     private $commentsRepository;
 
-    public function inject(\PostsRepository $postsRepository, \CommentsRepository $commentsRepository) {
-        $this->postsRepository = $postsRepository;
+    function __construct(\CommentsRepository $commentsRepository, \PostsRepository $postsRepository) {
         $this->commentsRepository = $commentsRepository;
+        $this->postsRepository = $postsRepository;
     }
 
     public function renderDefault() {
@@ -32,12 +33,12 @@ class HomepagePresenter extends BasePresenter {
         $this->template->comments = $this->commentsRepository->fetchArticleComments($id);
     }
 
-    protected function createComponentCommentForm() {
+    public function createComponentCommentForm() {
         $form = new UI\Form();
         $form->addText('author', 'Jméno: ')
-                ->addRule($form::FILLED, 'To se neumíš ani podepsat?!');
+            ->addRule($form::FILLED, 'To se neumíš ani podepsat?!');
         $form->addTextArea('body', 'Komentář: ')
-                ->addRule($form::FILLED, 'Komentář je povinný!');
+            ->addRule($form::FILLED, 'Komentář je povinný!');
         $form->addSubmit('send', 'Odeslat');
         $form->onSuccess[] = callback($this, 'commentFormSubmitted');
         return $form;
@@ -46,7 +47,7 @@ class HomepagePresenter extends BasePresenter {
     public function commentFormSubmitted(UI\Form $form) {
         $data = $form->getValues();
         $data['date'] = new \DateTime();
-        $data['post_id'] = (int) $this->getParam('id');
+        $data['post_id'] = (int)$this->getParam('id');
         $id = $this->commentsRepository->insert($data);
         $this->flashMessage('Komentář uložen!');
         $this->redirect("this");

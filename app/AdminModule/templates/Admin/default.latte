@@ -1,4 +1,6 @@
 {block content}
+<h5><a n:href="Admin:addArticle">Přidat nový článek</a></h5>
+
 <div id="posts">
     {if count($posts)}
         <h3>Seznam článků</h3>
@@ -21,7 +23,4 @@
     {else}
         Zatím nebyl napsán žádný článek.
     {/if}
-
-    <h5><a n:href="Admin:addArticle">Přidat nový článek</a></h5>
 </div>
-{/block}

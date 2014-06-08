@@ -2,8 +2,7 @@
 
 namespace FrontModule;
 
-use Nette\Application\UI;
-
+use \Nette\Application\UI;
 
 /**
  * Sign in/out presenters.
@@ -11,18 +10,12 @@ use Nette\Application\UI;
 class SignPresenter extends BasePresenter {
 
 
-    /**
-     * Sign-in form factory.
-     * @return Nette\Application\UI\Form
-     */
     protected function createComponentSignInForm() {
         $form = new UI\Form;
         $form->addText('username', 'Jméno:')
             ->setRequired('Vyplňte Vaší přezdívku.');
-
         $form->addPassword('password', 'Heslo:')
             ->setRequired('Vyplňte Vaše heslo.');
-
         $form->addSubmit('send', 'Přihlásit se');
 
         // call method signInFormSucceeded() on success
@@ -38,7 +31,7 @@ class SignPresenter extends BasePresenter {
             $this->flashMessage('Byl jste přihlášen', 'info');
             $this->redirect(':Admin:Admin:');
 
-        } catch (Nette\Security\AuthenticationException $e) {
+        } catch (\Nette\Security\AuthenticationException $e) {
             $form->addError($e->getMessage());
         }
     }

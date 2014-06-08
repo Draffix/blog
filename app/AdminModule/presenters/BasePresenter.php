@@ -1,13 +1,12 @@
 <?php
 /**
- * User: Jaroslav Klimčík
- * Date: 26.6.13
- * Time: 14:56
+ * Author: Jaroslav Klimčík
+ * Date: 8.6.14
+ * Website: http://jerryklimcik.cz
  */
 
 namespace AdminModule;
 
-use \Nette\Diagnostics\Debugger;
 
 class BasePresenter extends \Nette\Application\UI\Presenter {
 
@@ -21,4 +20,5 @@ class BasePresenter extends \Nette\Application\UI\Presenter {
         $this->redirect(':Front:Homepage:default');
 
     }
+
 }

@@ -1,34 +1,25 @@
 <?php
 /**
- * User: Jaroslav Klimčík
- * Date: 26.6.13
- * Time: 15:00
+ * Author: Jaroslav Klimčík
+ * Date: 8.6.14
+ * Website: http://jerryklimcik.cz
  */
 
 namespace AdminModule;
 
 use \Nette\Application\UI\Form;
 
-class AdminPresenter extends BasePresenter {
 
+class AdminPresenter extends BasePresenter {
     /** @var \PostsRepository */
     private $postsRepository;
 
-    public function inject(\PostsRepository $postsRepository) {
+    /** @var \CommentsRepository */
+    private $commentsRepository;
+
+    function __construct(\PostsRepository $postsRepository, \CommentsRepository $commentsRepository) {
         $this->postsRepository = $postsRepository;
-    }
-
-    public function handleDeleteArticle($id) {
-        $this->postsRepository->deleteArticle($id);
-        $this->flashMessage('Článek byl smazán', 'info');
-        $this->redirect('Admin:');
-    }
-
-    public function beforeRender() {
-        parent::beforeRender();
-        if (!$this->user->isLoggedIn()) {
-            $this->redirect(':Front:Homepage:');
-        }
+        $this->commentsRepository = $commentsRepository;
     }
 
     public function renderDefault() {
@@ -38,9 +29,6 @@ class AdminPresenter extends BasePresenter {
     public function renderSingle($id) {
     }
 
-    /**
-     * @return Form
-     */
     protected function createComponentEditArticleForm() {
         $post = $this->postsRepository->fetchSingle($this->getParam('id'));
 
@@ -68,9 +56,13 @@ class AdminPresenter extends BasePresenter {
         $this->redirect("Admin:");
     }
 
-    /**
-     * @return Form
-     */
+    public function handleDeleteArticle($id) {
+        $this->commentsRepository->deleteComments($id);
+        $this->postsRepository->deleteArticle($id);
+        $this->flashMessage('Článek byl smazán', 'info');
+        $this->redirect('Admin:');
+    }
+
     protected function createComponentAddArticleForm() {
         $form = new Form();
 
@@ -84,10 +76,6 @@ class AdminPresenter extends BasePresenter {
         return $form;
     }
 
-
-    /**
-     * @param Form $form
-     */
     public function addArticleFormSucceeded(Form $form) {
         $values = $form->getValues();
         $values->date = new \Nette\DateTime();
@@ -95,4 +83,5 @@ class AdminPresenter extends BasePresenter {
         $this->flashMessage('Článek byl přidán', 'info');
         $this->redirect("Admin:");
     }
+
 }

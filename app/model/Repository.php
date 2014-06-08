@@ -1,44 +1,18 @@
 <?php
-
-
 /**
- * Provádí operace nad databázovou tabulkou.
- *
- * @author Draffix
+ * Author: Jaroslav Klimčík
+ * Date: 8.6.14
+ * Website: http://jerryklimcik.cz
  */
+
 abstract class Repository extends Nette\Object {
 
-    /** @var Nette\Database\Connection */
+    /** @var Nette\Database\Context */
     protected $connection;
 
-    public function __construct(Nette\Database\Connection $db) {
+    public function __construct(Nette\Database\Context $db) {
         $this->connection = $db;
     }
 
-    /**
-     * Vrací objekt reprezentující databázovou tabulku.
-     * @return Nette\Database\Table\Selection
-     */
-    protected function getTable() {
-        // název tabulky odvodíme z názvu třídy
-        preg_match('#(\w+)Repository$#', get_class($this), $m);
-        return $this->connection->table(lcfirst($m[1]));
-    }
-
-    /**
-     * Vrací všechny řádky z tabulky.
-     * @return Nette\Database\Table\Selection
-     */
-    public function findAll() {
-        return $this->getTable();
-    }
-
-    /**
-     * Vrací řádky podle filtru, např. array('name' => 'John').
-     * @return Nette\Database\Table\Selection
-     */
-    public function findBy(array $by) {
-        return $this->getTable()->where($by);
-    }
 
 }

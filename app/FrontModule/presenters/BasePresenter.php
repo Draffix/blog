@@ -2,6 +2,7 @@
 
 namespace FrontModule;
 
+
 /**
  * Base presenter for all application presenters.
  */

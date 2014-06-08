@@ -1,11 +1,3 @@
-{**
- * My Application layout template.
- *
- * @param string   $basePath web base path
- * @param string   $robots   tell robots how to index the content of a page (optional)
- * @param array    $flashes  flash messages
- *}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +14,11 @@
 </head>
 
 <body>
-<script> document.documentElement.className+=' js' </script>
+<script> document.documentElement.className += ' js' </script>
 
 <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
+<a n:href="logOut!">Odhlásit se!</a>
 {include #content}
 
 {block scripts}

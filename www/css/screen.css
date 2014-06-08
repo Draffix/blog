@@ -26,17 +26,17 @@ div.flash {
 	margin: 1em 0;
 }
 
-a[href^="error:"] {
+a[href^="#error:"] {
 	background: red;
 	color: white;
 }
 
-form tr, form td {
+form th, form td {
 	vertical-align: top;
 	font-weight: normal;
 }
 
-form tr {
+form th {
 	text-align: right;
 }
 
