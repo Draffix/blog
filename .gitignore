@@ -1,6 +1,8 @@
 log/*
 temp/*
 vendor/*
+www/*
+.idea/*
 !vendor/others
 
 .DS_Store
